@@ -4,6 +4,7 @@ Setup project commands with expo:
     npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar    //Installing Expo-Router for file based routing
      "main": "expo-router/entry"        //change main in package.json to this.
       "scheme": "your-app-scheme"       //add this to app.json file
+    npx expo install react-native-safe-area-context         //Adding safe area
 
 Git Commands:
     git checkout -b branchname          //To create a new branch from main. ##DONT WORK ON MAIN BRANCH!!!
