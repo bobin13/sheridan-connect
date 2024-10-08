@@ -1,7 +1,15 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
+import {Ionicons} from '@expo/vector-icons';
 
 const LoginPage = () => {
+
+  const router = useRouter();
+
+  const handleBackPress = () => {
+    router.back();
+  }
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,10 +25,15 @@ const LoginPage = () => {
   return (
     <View style={styles.container}>
 
+        <TouchableOpacity onPress={handleBackPress} style={{ position: 'absolute', top: 40, left: 20 }}>
+          <Ionicons name="arrow-back-outline" size={30} color="black" />
+        </TouchableOpacity>
 
       <View style = {styles.logCard}>
 
         <Text style={styles.title}>Login</Text>
+
+      
         
         <TextInput
           style={styles.input}
@@ -43,7 +56,7 @@ const LoginPage = () => {
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => router.push('/SignupPage')} >
           <Text style={styles.registerLink}>Don't have an account? Register here</Text>
         </TouchableOpacity>
 
