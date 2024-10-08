@@ -1,22 +1,48 @@
-import { View } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
+import {Ionicons} from '@expo/vector-icons'
 
 const newsfeed = () => {
+
+ 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 10,
-      }}
-    >
-      <Link href="/list/1">item 1</Link>
-      <Link href="/list/2">item 2</Link>
-      <Link href="/list/3">item 3</Link>
-      <Link href="/list/4">item 4</Link>
+    <View>
+      
+      <Text style={styles.title}>News and Updates</Text>
+
+      <TouchableOpacity style={styles.iconButton}>
+        <Ionicons name="log-in" size={25} color="black" />
+      </TouchableOpacity>
+    
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 28,           
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,   
+    marginVertical: 10    
+  },
+  iconButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 20,
+    backgroundColor: '#fff',
+    borderRadius: 40,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
+});
 
 export default newsfeed;
