@@ -1,12 +1,22 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
 const communities = () => {
   return (
     <View>
-      <Text>communities</Text>
+      <Text style={styles.title}>Communities</Text>
     </View>
   );
 };
 
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 28,           
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,   
+    marginVertical: 50    
+  },
+
+});
 export default communities;

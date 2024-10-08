@@ -1,16 +1,22 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import {Ionicons} from '@expo/vector-icons'
+import { useRouter } from "expo-router";
 
 const newsfeed = () => {
 
- 
+  const router = useRouter();
+
+  const navigateToLogin = () => {
+    router.push('/LoginPage');
+  }
+
   return (
     <View>
       
       <Text style={styles.title}>News and Updates</Text>
 
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
         <Ionicons name="log-in" size={25} color="black" />
       </TouchableOpacity>
     
@@ -24,7 +30,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 20,   
-    marginVertical: 10    
+    marginVertical: 50    
   },
   iconButton: {
     position: 'absolute',

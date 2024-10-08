@@ -12,9 +12,14 @@ const userData = {
 
 const profile = () => {
   return (
+   
+    
+
+    
+    
     <View style={styles.container}>
-      {/* Profile Image */}
-      <Text style={styles.title}>Profile</Text>
+
+    <Text style={styles.title}>Profile</Text>
 
       <View style={styles.profileCard}>
         <View style={styles.profileImageContainer}>
@@ -38,6 +43,8 @@ const profile = () => {
       
     
     </View>
+
+    
   );
   
 };
@@ -116,7 +123,8 @@ const styles = StyleSheet.create({
     fontSize: 28,           
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20,      
+    marginBottom: 10,   
+    marginVertical: 40    
   },
 });
 export default profile;

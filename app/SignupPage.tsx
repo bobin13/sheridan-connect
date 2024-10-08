@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 const SignupPage = () => {
   const [name, setName] = useState('');
@@ -8,6 +9,12 @@ const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const router = useRouter();
+
+  const handleBackPress = () => {
+    router.back();
+  }
 
   const handleSignUp = () => {
     if (password !== confirmPassword) {
@@ -20,6 +27,10 @@ const SignupPage = () => {
 
   return (
     <View style={styles.container}>
+
+        <TouchableOpacity onPress={handleBackPress} style={{ position: 'absolute', top: 40, left: 20 }}>
+          <Ionicons name="arrow-back-outline" size={30} color="black" />
+        </TouchableOpacity>
 
         <View style={styles.logCard}>
             <Text style={styles.title}>Sign Up</Text>
@@ -69,8 +80,12 @@ const SignupPage = () => {
                 <Ionicons name="eye-off-outline" size={24} color="black" style={styles.icon} />
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-                <Text style={styles.buttonText}>Sign Up</Text>
+            <TouchableOpacity style={styles.loginButton} onPress={handleSignUp}>
+                <Text style={styles.loginButtonText}>Sign Up</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => router.push('/LoginPage')} style={styles.loginButton}>
+              <Text style={styles.loginButtonText}>Log In</Text>
             </TouchableOpacity>
 
         </View>
@@ -132,20 +147,22 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  button: {
-    backgroundColor: '#007BFF',
-    height: 50,
-    width: 90,
-    justifyContent: 'center',
-    alignSelf: 'center',
-    alignItems: 'center',
+  loginButton: {
+    height: 40,
+    width: 90,               
     borderRadius: 5,
+    backgroundColor: '#007BFF', 
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginVertical: 10,       
   },
-  buttonText: {
-    color: 'white',
+  
+  loginButtonText: {
+    color: '#fff',           
+    fontSize: 16,             
     fontWeight: 'bold',
-    fontSize: 16,
-  },
+  }
 });
 
 export default SignupPage;
