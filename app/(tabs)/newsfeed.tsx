@@ -13,6 +13,7 @@ const NewsFeed = () => {
   // Hardcoded News Data
   const newsData = [
     {
+      //Sample Data
       id: 1,
       title: "New Campus Library Opened",
       image: "https://via.placeholder.com/400x200", // Placeholder image
