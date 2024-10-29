@@ -1,5 +1,6 @@
 import { Stack, Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import values from "../res/strings/values.json";
 
 export default () => {
   return (
@@ -25,10 +26,13 @@ export default () => {
         },
         tabBarActiveTintColor: "blue", // Color for active tab
         tabBarInactiveTintColor: "gray", // Color for inactive tab
+        tabBarLabelStyle: {
+          fontSize: values.fonts["tab-bar-font-size"],
+        },
       })}
     >
-      <Tabs.Screen name="newsfeed" options={{ title: "News Feed" }} />
       <Tabs.Screen name="communities" options={{ title: "Communities" }} />
+      <Tabs.Screen name="newsfeed" options={{ title: "News Feed" }} />
       <Tabs.Screen name="map" options={{ title: "Map" }} />
       <Tabs.Screen name="ProfilePage" options={{ title: "Profile" }} />
     </Tabs>

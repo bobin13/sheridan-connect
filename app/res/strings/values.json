@@ -1,0 +1,19 @@
+{
+  "colors": {
+    "primary-color": "",
+    "secondary-color": "",
+    "third-color": "",
+    "primary-font-color": ""
+  },
+
+  "fonts": {
+    "font-size": "",
+    "heading-size": "",
+    "tab-bar-icon-size": "",
+    "tab-bar-font-size": 14
+  },
+  "tabs": {
+    "tabs-inactive-color": "",
+    "tabs-active-color": ""
+  }
+}
