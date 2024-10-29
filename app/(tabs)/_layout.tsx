@@ -24,10 +24,18 @@ export default () => {
           // Return the icon component
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "blue", // Color for active tab
-        tabBarInactiveTintColor: "gray", // Color for inactive tab
+        tabBarActiveTintColor: values.tabs["tab-active-color"], // Color for active tab
+        tabBarInactiveTintColor: values.tabs["tab-inactive-color"], // Color for inactive tab
         tabBarLabelStyle: {
           fontSize: values.fonts["tab-bar-font-size"],
+        },
+        tabBarStyle: {
+          backgroundColor: values.colors["primary-color"],
+
+          height: 60,
+        },
+        tabBarItemStyle: {
+          padding: 5,
         },
       })}
     >

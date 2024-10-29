@@ -1,9 +1,10 @@
 {
   "colors": {
-    "primary-color": "",
+    "primary-color": "#001433",
     "secondary-color": "",
     "third-color": "",
-    "primary-font-color": ""
+    "primary-font-color": "",
+    "page-background": ""
   },
 
   "fonts": {
@@ -13,7 +14,9 @@
     "tab-bar-font-size": 14
   },
   "tabs": {
-    "tabs-inactive-color": "",
-    "tabs-active-color": ""
+    "tab-inactive-color": "gray",
+    "tab-active-color": "#F2E5BF",
+    "tab-bar-color": "",
+    "tab-icon-color": ""
   }
 }

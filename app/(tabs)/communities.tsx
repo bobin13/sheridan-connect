@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import values from "../res/strings/values.json";
 
 const communities = () => {
   const [community, setCommunity] = useState("");
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     marginVertical: 50,
   },
   input: {
-    borderColor: "#002966",
+    borderColor: values.colors["primary-color"],
     borderWidth: 3,
     padding: 8,
     margin: 10,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#001433",
+    backgroundColor: values.colors["primary-color"],
     alignSelf: "center",
     padding: 6,
     borderRadius: 10,

@@ -1,19 +1,14 @@
-import React from 'react';
-import { Stack } from 'expo-router';
-
-
-
+import React from "react";
+import { Stack } from "expo-router";
 
 const StackLayout = () => {
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      
+
       <Stack.Screen name="LoginPage" options={{ headerShown: false }} />
 
       <Stack.Screen name="SignupPage" options={{ headerShown: false }} />
-
-
     </Stack>
   );
 };

@@ -1,0 +1,12 @@
+{
+  "tab": {
+    "tab1-name": "News Feed",
+    "tab2-name": "Communities",
+    "tab3-name": "Map",
+    "tab4-name": "Profile"
+  },
+  "communities": {
+    "page-heading": "Communities",
+    "button-name": "Search!"
+  }
+}
