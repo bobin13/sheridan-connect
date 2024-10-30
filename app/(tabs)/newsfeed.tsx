@@ -92,6 +92,10 @@ const NewsFeed: React.FC = () => {
     <View style={styles.container}>
       <Text style={styles.title}>News and Updates</Text>
 
+      {/* <TouchableOpacity onPress={navigateToAddInfo} style={styles.addButton}>
+        <Ionicons name="add" size={40} color="white" />
+      </TouchableOpacity> */}
+
       <ScrollView contentContainerStyle={styles.newsFeed}>
         {newsData.map((news) => (
           <View key={news.id} style={styles.newsItem}>
@@ -228,20 +232,19 @@ const styles = StyleSheet.create({
   },
   addButton: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
+    top: 70,
+    right: 10,
     backgroundColor: '#007AFF',
-    borderRadius: 50,
+    borderRadius: 40,
     padding: 10,
-    width: 60,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
+
     elevation: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 4,
+    
+    
   },
   modalContainer: {
     flex: 1,

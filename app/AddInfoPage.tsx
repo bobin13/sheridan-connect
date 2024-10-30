@@ -10,10 +10,10 @@ const AddInfoPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
+    // "https://via.placeholder.com/150x100?text=Image+1",
     "https://via.placeholder.com/150x100?text=Image+1",
     "https://via.placeholder.com/150x100?text=Image+2",
     "https://via.placeholder.com/150x100?text=Image+3",
-    "https://via.placeholder.com/150x100?text=Image+4",
     // Add more image URLs as needed
   ];
 
