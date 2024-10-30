@@ -31,7 +31,6 @@ export default () => {
         },
         tabBarStyle: {
           backgroundColor: values.colors["primary-color"],
-
           height: 60,
         },
         tabBarItemStyle: {

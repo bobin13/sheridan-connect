@@ -18,5 +18,9 @@
     "tab-active-color": "#F2E5BF",
     "tab-bar-color": "",
     "tab-icon-color": ""
+  },
+  "newsfeed-item": {
+    "item-border-color": "#001433",
+    "item-title-background": "#7AB2D3"
   }
 }
