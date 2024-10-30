@@ -3,50 +3,40 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from "rea
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from "expo-router";
 
-const NewsFeed = () => {
+interface NewsItem {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  date: string;
+}
+
+const NewsFeed: React.FC = () => {
   const router = useRouter();
 
   const navigateToLogin = () => {
     router.push('/LoginPage');
   };
 
+  const navigateToAddInfo = () => {
+    router.push('/AddInfoPage');
+  };
+
   // Hardcoded News Data
-  const newsData = [
+  const newsData: NewsItem[] = [
     {
-      //Sample Data
       id: 1,
       title: "New Campus Library Opened",
-      image: "https://via.placeholder.com/400x200", // Placeholder image
+      image: "https://via.placeholder.com/400x200",
       description: "The newly renovated library on campus is now open. With a modern design and more resources, students have access to more than ever.",
       date: "October 2, 2024",
     },
     {
       id: 2,
       title: "Upcoming Tech Fest 2024",
-      image: "https://via.placeholder.com/400x200", // Placeholder image
+      image: "https://via.placeholder.com/400x200",
       description: "The annual Tech Fest is here! This year promises to bring exciting new tech innovations. Join us on October 20th.",
       date: "October 1, 2024",
-    },
-    {
-      id: 3,
-      title: "AI Expert Seminar",
-      image: "https://via.placeholder.com/400x200", // Placeholder image
-      description: "Join Dr. John Smith for an expert seminar on AI and Machine Learning. The event is free for all students and faculty.",
-      date: "September 30, 2024",
-    },
-    {
-      id: 4,
-      title: "College Sports Day",
-      image: "https://via.placeholder.com/400x200", // Placeholder image
-      description: "Join us for the annual College Sports Day filled with fun, competition, and prizes. Don’t miss out!",
-      date: "September 29, 2024",
-    },
-    {
-      id: 5,
-      title: "Mental Health Awareness Workshop",
-      image: "https://via.placeholder.com/400x200", // Placeholder image
-      description: "A workshop focused on mental health awareness and resources available to students. Open to everyone.",
-      date: "September 28, 2024",
     },
   ];
 
@@ -69,6 +59,10 @@ const NewsFeed = () => {
 
       <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
         <Ionicons name="log-in" size={25} color="black" />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={navigateToAddInfo} style={styles.addButton}>
+        <Ionicons name="add" size={40} color="white" />
       </TouchableOpacity>
     </View>
   );
@@ -129,13 +123,27 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     padding: 10,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
+  },
+  addButton: {
+    position: 'absolute',
+    bottom: 70,
+    right: 20,
+    backgroundColor: '#007AFF', // Change this color as needed
+    borderRadius: 50,
+    padding: 10,
+    width: 60,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
 });
 
