@@ -38,8 +38,8 @@ export default () => {
         },
       })}
     >
-      <Tabs.Screen name="communities" options={{ title: "Communities" }} />
       <Tabs.Screen name="newsfeed" options={{ title: "News Feed" }} />
+      <Tabs.Screen name="communities" options={{ title: "Communities" }} />
       <Tabs.Screen name="map" options={{ title: "Map" }} />
       <Tabs.Screen name="ProfilePage" options={{ title: "Profile" }} />
     </Tabs>
