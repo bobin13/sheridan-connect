@@ -2,16 +2,14 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ObjectId } from "bson";
 
-interface CommunityProps {
+type CommunityProps = {
   community: {
     name: string;
     description: string;
-    admin: {
-      name: string;
-    };
-    //members: string;
+    admins: string;
+    members: string[];
   };
-}
+};
 
 export default function CommunityItem(props: CommunityProps) {
   return (
@@ -19,8 +17,10 @@ export default function CommunityItem(props: CommunityProps) {
       <Text style={styles.heading}>{props.community.name}</Text>
       <Text style={styles.bio}>{props.community.description}</Text>
       <View style={styles.footer}>
-        <Text style={styles.author}>By: {props.community.admin.name} </Text>
-        <Text style={styles.members}>Members</Text>
+        <Text style={styles.author}>By: {props.community.admins} </Text>
+        <Text style={styles.members}>
+          Members : {props.community.members.length}
+        </Text>
       </View>
     </View>
   );

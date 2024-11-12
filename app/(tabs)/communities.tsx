@@ -56,7 +56,7 @@ const communities = () => {
 
       <FlatList
         data={communites}
-        keyExtractor={(item: any) => item._id.timestamp}
+        keyExtractor={(item: any) => item._id}
         renderItem={({ item }) => <CommunityItem community={item} />}
       />
     </View>
