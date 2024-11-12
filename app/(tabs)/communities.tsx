@@ -5,15 +5,38 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
-import values from "../res/strings/values.json";
+import { BSON, ObjectId } from "bson";
+import { styles } from "./communities.styles";
+import CommunityItem from "./CommunityItem";
 
 const communities = () => {
-  const [community, setCommunity] = useState("");
+  const [searchBox, SetSearchBox] = useState("aa");
+  const [communites, setCommunities] = useState([]);
+
+  const getCommunities = async () => {
+    try {
+      fetch("http://10.0.2.2:5081/api/v1/Communities")
+        .then(async (response) => {
+          //throws an error if response not successful
+          if (!response.ok) throw new Error(response.status + "");
+          const json = await response.json();
+          //setCommunities(json);
+          return json;
+        })
+        .then((json) => setCommunities(json));
+    } catch (error) {
+      console.error("error: " + error);
+    } finally {
+      console.log(communites);
+    }
+  };
 
   const onSearchButtonPress = () => {
-    if (community != "") {
+    if (searchBox != "") {
       //function only triggers while input field isn't empty.
+      getCommunities();
     }
   };
 
@@ -21,7 +44,7 @@ const communities = () => {
     <View>
       <Text style={styles.title}>Communities</Text>
       <TextInput
-        onChangeText={(val) => setCommunity(val)}
+        onChangeText={(val) => SetSearchBox(val)}
         placeholder="Search Your Community.."
         style={styles.input}
         onSubmitEditing={onSearchButtonPress}
@@ -30,35 +53,14 @@ const communities = () => {
       <TouchableOpacity style={styles.button} onPress={onSearchButtonPress}>
         <Text style={{ color: "#fff", alignSelf: "center" }}>Search!</Text>
       </TouchableOpacity>
+
+      <FlatList
+        data={communites}
+        keyExtractor={(item: any) => item._id.timestamp}
+        renderItem={({ item }) => <CommunityItem community={item} />}
+      />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 20,
-    marginVertical: 50,
-  },
-  input: {
-    borderColor: values.colors["primary-color"],
-    borderWidth: 3,
-    padding: 8,
-    margin: 10,
-    width: 300,
-    alignSelf: "center",
-    borderRadius: 10,
-    textAlign: "center",
-  },
-  button: {
-    backgroundColor: values.colors["primary-color"],
-    alignSelf: "center",
-    padding: 6,
-    borderRadius: 10,
-    width: 200,
-    shadowColor: "#000",
-  },
-});
 export default communities;
