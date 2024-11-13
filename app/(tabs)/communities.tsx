@@ -22,6 +22,7 @@ const communities = () => {
           //throws an error if response not successful
           if (!response.ok) throw new Error(response.status + "");
           const json = await response.json();
+          console.log(json);
           //setCommunities(json);
           return json;
         })
