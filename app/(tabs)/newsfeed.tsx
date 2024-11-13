@@ -295,7 +295,7 @@ interface NewsItem {
   image: string;
   description: string;
   date: string;
-  likes: number;
+  like_count: number;
   comments: string[];
 }
 
@@ -337,7 +337,7 @@ const NewsFeed: React.FC = () => {
   const handleLike = (id: string) => {
     setNewsData(
       newsData.map((news) =>
-        news._id === id ? { ...news, likes: news.likes + 1 } : news
+        news._id === id ? { ...news, likes: news.like_count + 1 } : news
       )
     );
   };
@@ -366,7 +366,7 @@ const NewsFeed: React.FC = () => {
       <Text style={styles.title}>News and Updates</Text>
 
       <ScrollView contentContainerStyle={styles.newsFeed}>
-        {newsData.length === 0 ? (
+        {newsData == null ? (
           <Text style={styles.title}>Loading news...</Text>
         ) : (
           newsData.map((news) => (
@@ -382,16 +382,16 @@ const NewsFeed: React.FC = () => {
                     style={styles.actionButton}
                   >
                     <Ionicons name="heart" size={20} color="red" />
-                    <Text style={styles.actionText}>{news.likes} Likes</Text>
+                    <Text style={styles.actionText}>
+                      {news.like_count} Likes
+                    </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => openCommentsModal(news)}
                     style={styles.actionButton}
                   >
                     <Ionicons name="chatbubble" size={20} color="blue" />
-                    <Text style={styles.actionText}>
-                      {news.comments.length} Comments
-                    </Text>
+                    <Text style={styles.actionText}>0 Comments</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => {
