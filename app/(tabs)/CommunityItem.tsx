@@ -25,7 +25,7 @@ export default function CommunityItem(props: CommunityProps) {
     </View>
   );
 }
-
+//test
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
