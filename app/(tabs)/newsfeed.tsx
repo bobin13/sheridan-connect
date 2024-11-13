@@ -513,7 +513,7 @@ const styles = StyleSheet.create({
   },
   iconButton: {
     position: "absolute",
-    bottom: 10,
+    top: 47,
     right: 20,
     backgroundColor: "#fff",
     borderRadius: 40,
@@ -526,8 +526,8 @@ const styles = StyleSheet.create({
   },
   addButton: {
     position: "absolute",
-    top: 70,
-    right: 10,
+    bottom: 25,
+    right: 15,
     backgroundColor: "#007AFF",
     borderRadius: 40,
     padding: 10,
