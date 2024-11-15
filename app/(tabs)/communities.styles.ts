@@ -27,4 +27,17 @@ export const styles = StyleSheet.create({
       width: 200,
       shadowColor: "#000",
     },
+    iconButton: {
+      position: "absolute",
+      top: 47,
+      right: 20,
+      backgroundColor: "#fff",
+      borderRadius: 40,
+      padding: 10,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.3,
+      shadowRadius: 4,
+      elevation: 5,
+    }
   });

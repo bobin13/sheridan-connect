@@ -10,6 +10,8 @@ import {
 import { BSON, ObjectId } from "bson";
 import { styles } from "./communities.styles";
 import CommunityItem from "./CommunityItem";
+import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 const communities = () => {
   const [searchBox, SetSearchBox] = useState("aa");
@@ -41,6 +43,10 @@ const communities = () => {
     }
   };
 
+  const navigateToLogin = () => {
+    router.push("/LoginPage");
+  };
+
   return (
     <View>
       <Text style={styles.title}>Communities</Text>
@@ -50,6 +56,10 @@ const communities = () => {
         style={styles.input}
         onSubmitEditing={onSearchButtonPress}
       />
+
+      <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
+        <Ionicons name="log-in" size={25} color="black" />
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={onSearchButtonPress}>
         <Text style={{ color: "#fff", alignSelf: "center" }}>Search!</Text>
