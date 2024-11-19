@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import CommunityItem from "./CommunityItem";
-
+import { StatusBar } from "expo-status-bar";
 const communities = () => {
   const [searchBox, SetSearchBox] = useState("aa");
   const [communites, setCommunities] = useState([]);
@@ -40,29 +40,23 @@ const communities = () => {
     }
   };
 
-  const navigateToLogin = () => {
-    router.push("/LoginPage");
-  };
-
   return (
-    <View className="flex-1 items-center">
-      <Text className="font-bold text-xl">Communities</Text>
+    <View className="flex-1 items-center bg-gray-800">
+      <StatusBar style="light" backgroundColor="#1f2937" />
+      <Text className="font-bold text-xl text-white">Communities</Text>
       <TextInput
+        className="border border-gray-300 rounded text-center p-2 mt-2 text-white"
+        placeholderTextColor="gray"
         onChangeText={(val) => SetSearchBox(val)}
         placeholder="Search Your Community.."
         onSubmitEditing={onSearchButtonPress}
       />
 
-      <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
-        <Ionicons name="log-in" size={25} color="black" />
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
-        <Ionicons name="log-in" size={25} color="black" />
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={onSearchButtonPress}>
-        <Text>Search!</Text>
+      <TouchableOpacity
+        className="border border-gray-300 p-1 pl-2 pr-2 rounded-lg mt-2"
+        onPress={onSearchButtonPress}
+      >
+        <Text className="text-white">Search!</Text>
       </TouchableOpacity>
 
       <FlatList
