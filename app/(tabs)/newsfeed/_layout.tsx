@@ -286,16 +286,17 @@ import {
   TextInput,
   Button,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 interface NewsItem {
   _id: string;
   title: string;
-  image: string;
+  postImageUrl: string;
   description: string;
   date: string;
-  like_count: number;
+  likeCount: number;
   comments: string[];
 }
 
@@ -314,10 +315,11 @@ const NewsFeed: React.FC = () => {
         throw new Error("Failed to fetch news data");
       }
       const json = await response.json();
-      console.log("Fetched News Data:", json); // Log the response to verify data
+      console.log("Fetched News Data:", json[0]); // Log the response to verify data
       setNewsData(json); // Update the state with the fetched data
     } catch (error) {
       console.error("Error fetching news:", error);
+    } finally {
     }
   };
 
@@ -337,7 +339,7 @@ const NewsFeed: React.FC = () => {
   const handleLike = (id: string) => {
     setNewsData(
       newsData.map((news) =>
-        news._id === id ? { ...news, likes: news.like_count + 1 } : news
+        news._id === id ? { ...news, likes: news.likeCount + 1 } : news
       )
     );
   };
@@ -362,16 +364,25 @@ const NewsFeed: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>News and Updates</Text>
+    <View className="flex-1 items-center bg-gray-800">
+      <StatusBar style="light" backgroundColor="#1f2937" />
+      <Text className="text-white font-bold text-2xl pb-1">
+        News and Updates
+      </Text>
 
-      <ScrollView contentContainerStyle={styles.newsFeed}>
+      <ScrollView>
         {newsData == null ? (
           <Text style={styles.title}>Loading news...</Text>
         ) : (
           newsData.map((news) => (
-            <View key={news._id} style={styles.newsItem}>
-              <Image source={{ uri: news.image }} style={styles.newsImage} />
+            <View
+              key={news._id}
+              className="bg-gray-100 mb-3 rounded-md pl-2 pr-2"
+            >
+              <Image
+                source={{ uri: news.postImageUrl }}
+                className="border-stone-900 border-2 rounded-md mt-1 w-full h-[200px]"
+              />
               <View style={styles.newsContent}>
                 <Text style={styles.newsTitle}>{news.title}</Text>
                 <Text style={styles.newsDescription}>{news.description}</Text>
@@ -383,7 +394,7 @@ const NewsFeed: React.FC = () => {
                   >
                     <Ionicons name="heart" size={20} color="red" />
                     <Text style={styles.actionText}>
-                      {news.like_count} Likes
+                      {news.likeCount} Likes
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity

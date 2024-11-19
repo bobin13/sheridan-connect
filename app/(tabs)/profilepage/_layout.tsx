@@ -13,10 +13,10 @@ const userData = {
 
 const profile = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Profile</Text>
+    <View className="flex-1 items-center bg-gray-800">
+      <Text className="text-white font-bold text-2xl">Profile</Text>
 
-      <View style={styles.profileCard}>
+      <View style={styles.profileCard} className="w-[90%] mt-2">
         <View style={styles.profileImageContainer}>
           <Image
             source={{ uri: userData.profileImage }}
@@ -27,15 +27,15 @@ const profile = () => {
       </View>
 
       {/* User Info Card */}
-      <View style={styles.infoCard}>
+      <View style={styles.infoCard} className="w-[90%]">
         <Text style={styles.infoText}>Email: {userData.email}</Text>
         <Text style={styles.infoText}>Phone: {userData.phone}</Text>
         <Text style={styles.infoText}>Address: {userData.address}</Text>
       </View>
 
       {/* Bio Card */}
-      <View style={styles.bioCard}>
-        <Text style={styles.bioText}>{userData.bio}</Text>
+      <View className="w-[90%] rounded-md bg-blue-500">
+        <Text className="text-xl text-white p-2">{userData.bio}</Text>
       </View>
     </View>
   );
