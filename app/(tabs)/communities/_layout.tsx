@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import CommunityItem from "./CommunityItem";
+
 const communities = () => {
   const [searchBox, SetSearchBox] = useState("aa");
   const [communites, setCommunities] = useState([]);
@@ -39,6 +40,10 @@ const communities = () => {
     }
   };
 
+  const navigateToLogin = () => {
+    router.push("/LoginPage");
+  };
+
   return (
     <View className="flex-1 items-center">
       <Text className="font-bold text-xl">Communities</Text>
@@ -47,6 +52,14 @@ const communities = () => {
         placeholder="Search Your Community.."
         onSubmitEditing={onSearchButtonPress}
       />
+
+      <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
+        <Ionicons name="log-in" size={25} color="black" />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={navigateToLogin} style={styles.iconButton}>
+        <Ionicons name="log-in" size={25} color="black" />
+      </TouchableOpacity>
 
       <TouchableOpacity onPress={onSearchButtonPress}>
         <Text>Search!</Text>
