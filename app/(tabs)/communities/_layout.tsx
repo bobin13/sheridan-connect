@@ -7,10 +7,8 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import { BSON, ObjectId } from "bson";
-import { styles } from "./communities.styles";
-import CommunityItem from "./CommunityItem";
 
+import CommunityItem from "./CommunityItem";
 const communities = () => {
   const [searchBox, SetSearchBox] = useState("aa");
   const [communites, setCommunities] = useState([]);
@@ -42,17 +40,16 @@ const communities = () => {
   };
 
   return (
-    <View>
-      <Text style={styles.title}>Communities</Text>
+    <View className="flex-1 items-center">
+      <Text className="font-bold text-xl">Communities</Text>
       <TextInput
         onChangeText={(val) => SetSearchBox(val)}
         placeholder="Search Your Community.."
-        style={styles.input}
         onSubmitEditing={onSearchButtonPress}
       />
 
-      <TouchableOpacity style={styles.button} onPress={onSearchButtonPress}>
-        <Text style={{ color: "#fff", alignSelf: "center" }}>Search!</Text>
+      <TouchableOpacity onPress={onSearchButtonPress}>
+        <Text>Search!</Text>
       </TouchableOpacity>
 
       <FlatList
